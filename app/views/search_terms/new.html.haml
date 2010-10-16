@@ -6,9 +6,9 @@
   %p You have complete control from both the web and from your mobile phone. Simply direct message the bot and tell us when you want to start and stop.
 
 #setup
-  %h2 New search term
-  = form_for search_term do |f|
-    = f.label :term
-    = f.text_field :term
-
-    = f.submit
+  %h2 Let's get started
+  = form_for search_term do |make|
+    = make.label :term, "Direct Message me when the following name or phrase is mentioned"
+    = make.text_field :term, :id => "term", :value => "@railsrumble"
+    %p#disclaimer We will NOT tweet anything on your behalf.
+    %button{:type => "button"} Authorize
