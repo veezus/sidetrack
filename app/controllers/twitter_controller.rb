@@ -13,28 +13,7 @@ class TwitterController < ApplicationController
     session['twitter_stoken'] = nil
     current_user.update_attributes(
       { :twitter_atoken => oauth.access_token.token, :twitter_stoken => oauth.access_token.secret } )
-    # TODO: what should I do now?
-    render :text => 'ok'
-  end
-  
-  private
-  
-  def sign_in!
-    session[ 'twitter_rtoken' ], session[ 'twitter_stoken' ] = nil, nil
-    redirect_to :action => :connect
-  end
-  
-  def authorize
-    if current_user.twitter_atoken? && current_user.twitter_stoken?
-      oauth.authorize_from_access(current_user.twitter_atoken, current_user.twitter_stoken)
-      @profile = Twitter::Base.new(oauth)
-    else
-      sign_in!
-    end
-  end
-  
-  def oauth
-    @oauth ||= Twitter::OAuth.new(AppConfig['consumer_key'], AppConfig['consumer_secret'])
+    redirect_to dashboard_path
   end
   
 end

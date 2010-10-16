@@ -58,7 +58,7 @@ Sidetrack::Application.routes.draw do
   resources :search_terms
   match "/dashboard", :controller => 'search_terms', :action => 'index', :as => "dashboard"
 
-  match "/twitter/connect", :controller => 'twitter', :action => 'connect'
+  match "/twitter/connect", :controller => 'twitter', :action => 'connect', :as => "twitter_connect"
   match "/twitter/callback", :controller => 'twitter', :action => 'callback'
   
   root :to => "search_terms#new"

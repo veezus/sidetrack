@@ -1,4 +1,7 @@
 class SearchTermsController < ApplicationController
+  
+  before_filter :authorize, :only => :index
+  
   assume(:search_term) do
     # TODO (while sober): Figure out why the default assumption isn't working
     if search_term = current_user.search_terms.find_by_id(params[:id])
@@ -19,4 +22,21 @@ class SearchTermsController < ApplicationController
       render :new
     end
   end
+  
+  private
+  
+  def sign_in!
+    session[ 'twitter_rtoken' ], session[ 'twitter_stoken' ] = nil, nil
+    redirect_to twitter_connect_path
+  end
+  
+  def authorize
+    if current_user.twitter_atoken? && current_user.twitter_stoken?
+      oauth.authorize_from_access(current_user.twitter_atoken, current_user.twitter_stoken)
+      @profile = Twitter::Base.new(oauth)
+    else
+      sign_in!
+    end
+  end
+  
 end

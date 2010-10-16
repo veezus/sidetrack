@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :current_user
+  
+  
+  def oauth
+    @oauth ||= Twitter::OAuth.new(AppConfig['consumer_key'], AppConfig['consumer_secret'])
+  end
+  
 end
