@@ -14,6 +14,7 @@
       = current_user.claim_code
     - %w[success error].each do |message_type|
       = flash[message_type.to_sym]
+    = link_to "Rails Rumble", "http://railsrumble.com", :id => "rails-rumble"
     #page
       %header#header
         %h1 Sidetrack
