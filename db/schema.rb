@@ -10,13 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016112907) do
+ActiveRecord::Schema.define(:version => 20101016221115) do
 
   create_table "search_terms", :force => true do |t|
     t.integer  "user_id"
     t.string   "term"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "last_id"
   end
 
   create_table "users", :force => true do |t|
