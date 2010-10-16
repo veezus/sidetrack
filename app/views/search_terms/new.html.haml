@@ -1,6 +1,14 @@
-%h1 New search term
-= form_for search_term do |f|
-  = f.label :term
-  = f.text_field :term
+#pitch
+  %h4 Vanity Alerts
+  %p Want to get alerted every time someone mentions your name, company or product? Well without our easy to use and free application, you now can.
 
-  = f.submit
+  %h4 Complete Control
+  %p You have complete control from both the web and from your mobile phone. Simply direct message the bot and tell us when you want to start and stop.
+
+#setup
+  %h2 New search term
+  = form_for search_term do |f|
+    = f.label :term
+    = f.text_field :term
+
+    = f.submit

@@ -1,13 +1,23 @@
 !!!
 %html
   %head
-    %title Sidetrack
+    %title= page_title
     = stylesheet_link_tag :all
     = javascript_include_tag :defaults
+    %script{:src=>"http://html5shiv.googlecode.com/svn/trunk/html5.js"}
+    %script{:type=>"text/javascript", :src=>"http://use.typekit.com/lxl6vli.js"}
+    %script{:type=>"text/javascript"}
+      try{Typekit.load();}catch(e){}
     = csrf_meta_tag
   %body
     .claim_code
       = current_user.claim_code
     - %w[success error].each do |message_type|
       = flash[message_type.to_sym]
-    = yield
+    #page
+      %header#header
+        %h1 Sidetrack
+        %em.subtitle Stay In The Loop
+      %nav#navigation
+        = link_to "Already a member? Log in", "#"
+      = yield

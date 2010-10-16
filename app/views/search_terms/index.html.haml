@@ -1,4 +1,4 @@
-%h1 Your search terms
-
-- search_terms.each do |search_term|
-  = link_to search_term.term, search_term_path(search_term)
+.grid_6
+  %h2 Your search terms
+  - search_terms.each do |search_term|
+    = link_to search_term.term, search_term_path(search_term)
