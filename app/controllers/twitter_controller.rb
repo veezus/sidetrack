@@ -4,7 +4,6 @@ class TwitterController < ApplicationController
     oauth.set_callback_url(url_for( :action => :callback))
     session['twitter_rtoken'] = oauth.request_token.token
     session['twitter_stoken'] = oauth.request_token.secret
-    puts "\n\n\n\n#{oauth.request_token.authorize_url.inspect}\n\n\n\n"
     redirect_to oauth.request_token.authorize_url
   end
   
