@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016005124) do
+ActiveRecord::Schema.define(:version => 20101016112907) do
 
   create_table "search_terms", :force => true do |t|
     t.integer  "user_id"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20101016005124) do
     t.string   "claim_code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "twitter_atoken"
+    t.string   "twitter_stoken"
   end
 
 end

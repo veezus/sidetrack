@@ -1,0 +1,9 @@
+development: &development
+  consumer_key: h6yTy02YFQDrlkvbuqAg
+  consumer_secret: 9Ey28lANrY6tsTtA9iepu9RWas9dId0Azt0x2vDY
+
+test:
+  <<: *development
+
+cucumber:
+  <<: *development

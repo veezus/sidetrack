@@ -8,6 +8,8 @@ gem 'rails', '3.0.1'
 gem 'basic_assumption', '0.4.1'
 gem 'haml', '3.0.21'
 gem 'pg'
+gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'twitter'
 
 group :test, :development do
   gem 'capybara', '0.3.9'
