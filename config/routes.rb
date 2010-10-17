@@ -1,4 +1,6 @@
 Sidetrack::Application.routes.draw do
+  get "about", :controller => "pages"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

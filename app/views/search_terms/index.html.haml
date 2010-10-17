@@ -1,4 +1,16 @@
-.grid_6
-  %h2 Your search terms
-  - search_terms.each do |search_term|
-    = link_to search_term.term, search_term_path(search_term)
+- @page_title = "Dashboard"
+#dashboard
+  #setup
+    %h3 Add another rule
+    = form_for search_term do |make|
+      = make.label :term, "Direct Message me when the following name or phrase is mentioned"
+      = make.text_field :term, :id => "term", :value => "@railsrumble"
+      %p#disclaimer We will NOT tweet anything on your behalf.
+      %button{:type => "submit"} Authorize
+  #terms
+    %h3 Current Terms
+    %ul
+      - search_terms.each do |search_term|
+        %li.term
+          = link_to search_term.term, search_term_path(search_term), :class => "name"
+          = link_to "Delete", "#", :class => "actiona"
