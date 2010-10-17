@@ -10,6 +10,7 @@ gem 'haml', '3.0.21'
 gem 'pg'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'twitter'
+gem 'whiskey_disk', '0.5.3'
 
 group :test, :development do
   gem 'capybara', '0.3.9'

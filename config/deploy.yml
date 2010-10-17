@@ -1,0 +1,7 @@
+rumble:
+  domain: "sidetrack"
+  deploy_to: "/srv/sidetrack"
+  repository: "git@github.com:railsrumble/rr10-team-130.git"
+  branch: "master"
+  rake_env:
+    RAILS_ENV: "production"
