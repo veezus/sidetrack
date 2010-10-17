@@ -2,7 +2,7 @@ namespace :sidetrack do
   
   task :search => :environment do
     
-    User.all.each do |user|
+    User.find(:all, :conditions => ['twitter_name IS NOT NULL']).each do |user|
       SidetrackSearch.new(user).perform
     end
     
