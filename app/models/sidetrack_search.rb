@@ -29,6 +29,7 @@ class SidetrackSearch
     return nil if search.first.nil?
     
     search.each do |mention|
+      next if mention.from_user == search_term.user.twitter_name
       Notification.new(search_term, mention)
     end
     
