@@ -9,10 +9,17 @@ class TwitterController < ApplicationController
   
   def callback
     oauth.authorize_from_request(session[ 'twitter_rtoken' ], session[ 'twitter_stoken' ], params[ :oauth_verifier ])
+    client = Twitter::Base.new(oauth)
+    
+    client.friendship_create(AppConfig['twitter_name'])
+
+    twitter_name = client.verify_credentials.screen_name
+    
     session['twitter_rtoken'] = nil
-    session['twitter_stoken'] = nil
-    current_user.update_attributes(
-      { :twitter_atoken => oauth.access_token.token, :twitter_stoken => oauth.access_token.secret } )
+    session['twitter_stoken'] = nil  
+    
+    current_user.update_attributes({ :twitter_atoken => oauth.access_token.token, :twitter_stoken => oauth.access_token.secret, :twitter_name => twitter_name })
+
     redirect_to dashboard_path
   end
   

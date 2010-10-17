@@ -10,14 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016221115) do
+ActiveRecord::Schema.define(:version => 20101017150702) do
 
   create_table "search_terms", :force => true do |t|
     t.integer  "user_id"
     t.string   "term"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "last_id"
+    t.string   "last_id"
+    t.boolean  "wants_dm"
+    t.boolean  "wants_email"
+    t.string   "email"
   end
 
   create_table "users", :force => true do |t|
@@ -26,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20101016221115) do
     t.datetime "updated_at"
     t.string   "twitter_atoken"
     t.string   "twitter_stoken"
+    t.string   "twitter_name"
   end
 
 end

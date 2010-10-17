@@ -1,6 +1,6 @@
-namespace :search do
+namespace :sidetrack do
   
-  task :default => :environment do
+  task :search => :environment do
     
     User.all.each do |user|
       SidetrackSearch.new(user).perform

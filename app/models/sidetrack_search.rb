@@ -18,28 +18,22 @@ class SidetrackSearch
   
   def search_keyword(search_term)
     search = Twitter::Search.new(search_term.term).since_id(search_term.last_id)
-    
-    process_search
-    
-    # save last_id for future searches
-    # I'm doing this here because I only have to do this only for the first result set
-    
-    return nil if search.first.nil? # Do nothing if result set is empty
-    last_id = search.first.id
-    search_term.update_attributes!(:last_id => last_id)
+    process_search(search_term, search)
+
+    search_term.update_last_id(search.first.id)
   end
   
   private
   
-  def process_search(search)
-    # generate notification for current results
-    search.each do |result|
-      Notification.new() # put something here
+  def process_search(search_term, search)
+    return nil if search.first.nil?
+    
+    search.each do |mention|
+      Notification.new(search_term, mention)
     end
     
-    # fetch other results
     if search.next_page?
-      process_search(search.fetch_next_page)
+      process_search(search_term, search.fetch_next_page)
     end
   end
   

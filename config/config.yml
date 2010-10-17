@@ -1,6 +1,11 @@
 development: &development
-  consumer_key: h6yTy02YFQDrlkvbuqAg
-  consumer_secret: 9Ey28lANrY6tsTtA9iepu9RWas9dId0Azt0x2vDY
+  consumer_key: "h6yTy02YFQDrlkvbuqAg"
+  consumer_secret: "9Ey28lANrY6tsTtA9iepu9RWas9dId0Azt0x2vDY"
+  twitter_name: "SIDetrackapp_st"
+  twitter_atoken: "203402533-Z4M66KczDWodn0WZD2ymurcpSUMsKQhR2NwdZ3CF"
+  twitter_stoken: "UjpkfFRRZVZemQNU3bEgkrsm1U7l3G014b4GIpswGV8"
+  bitly_login: "sidetrackst"
+  bitly_api: "R_3f1004854e3038fd8ef42deaa07e20af"
 
 test:
   <<: *development
