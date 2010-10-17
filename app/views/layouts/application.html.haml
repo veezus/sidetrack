@@ -20,7 +20,7 @@
         %h1 Sidetrack
         %em.subtitle Stay In The Loop
       %nav#navigation
-        = link_to "Already a member? Log in", "#"
+        = link_to "Already a member? Log in", :controller => :twitter, :action => :connect
       = yield
       %footer#footer
         .inner

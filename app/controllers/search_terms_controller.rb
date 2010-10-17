@@ -13,6 +13,7 @@ class SearchTermsController < ApplicationController
   assume(:search_terms) { current_user.search_terms }
 
   def create
+    # TODO: Do nothing if the search term already exists
     if search_term.save
       flash[:success] = "Successfully created search term"
       redirect_to dashboard_path
@@ -20,6 +21,11 @@ class SearchTermsController < ApplicationController
       flash.now[:error] = "There was a problem creating your search term"
       render :new
     end
+  end
+  
+  def destroy
+    current_user.search_terms.find(params[:id]).destroy
+    redirect_to dashboard_path
   end
 
 private

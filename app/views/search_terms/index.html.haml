@@ -13,4 +13,4 @@
       - search_terms.each do |search_term|
         %li.term
           = link_to search_term.term, search_term_path(search_term), :class => "name"
-          = link_to "Delete", "#", :class => "actiona"
+          = link_to "Delete", search_term_path(search_term), :method => :delete, :class => "actiona"
