@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+before_filter :testing
+def testing
+  flash[:notice] = "Test"
+end
+
   def current_user
     User.find_by_claim_code(cookies[:claim_code]) ||
     User.create.tap do |user|

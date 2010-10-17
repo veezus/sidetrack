@@ -22,7 +22,7 @@ class SearchTermsController < ApplicationController
       render :new
     end
   end
-  
+
   def destroy
     current_user.search_terms.find(params[:id]).destroy
     redirect_to dashboard_path

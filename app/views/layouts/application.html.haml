@@ -12,8 +12,12 @@
   %body
     .claim_code
       = current_user.claim_code
-    - %w[success error].each do |message_type|
-      = flash[message_type.to_sym]
+    - if flash.any?
+      - flash.each do |key, error|
+        .flash{:class => key.to_s}
+          %p
+            %strong= "#{key.to_s.capitalize}:"
+            = error
     = link_to "Rails Rumble", "http://railsrumble.com", :id => "rails-rumble"
     #page
       %header#header
