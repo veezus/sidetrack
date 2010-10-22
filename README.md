@@ -18,5 +18,5 @@ We sincerely hope you will consider contributing as we continue to improve and r
 * [Zach Inglis](http://github.com/zachinglis)
 * [Oscar Del Ben](http://github.com/oscardelben)
 
-## Other Contributors
+### Other Contributors
 * [Cory Flanigan](http://github.com/seeflanigan)
