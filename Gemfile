@@ -22,7 +22,7 @@ group :test, :development do
   gem 'rspec-rails', '2.0.1'
   gem 'ruby-debug'
   gem 'shoulda', '2.11.3'
-  gem "uninhibited", :git => "http://github.com/jgdavey/uninhibited"
+  gem "uninhibited", :git => "git://github.com/jgdavey/uninhibited"
 end
 
 # Use unicorn as the web server
