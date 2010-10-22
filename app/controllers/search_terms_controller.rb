@@ -28,7 +28,7 @@ class SearchTermsController < ApplicationController
     redirect_to dashboard_path
   end
 
-private
+  private
 
   def sign_in!
     session[ 'twitter_rtoken' ], session[ 'twitter_stoken' ] = nil, nil

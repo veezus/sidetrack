@@ -1,11 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-before_filter :testing
-def testing
-  flash[:notice] = "Test"
-end
-
   def current_user
     User.find_by_claim_code(cookies[:claim_code]) ||
     User.create.tap do |user|
@@ -13,10 +8,9 @@ end
     end
   end
   helper_method :current_user
-  
-  
+
+
   def oauth
     @oauth ||= Twitter::OAuth.new(AppConfig['consumer_key'], AppConfig['consumer_secret'])
   end
-  
 end
